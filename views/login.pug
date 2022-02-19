@@ -1,0 +1,36 @@
+html(lang='en')
+    head
+        link(rel='shortcut icon' href='#')
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet' href='/homepage-style.css')
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:ital,wght@1,600&family=Quintessential&display=swap' rel='stylesheet')
+        link(rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous')
+        title=`${title}`
+    body
+        .container
+            .div1
+                a.website-name(href='/') X-Tracker
+                h1.homepage-heading Start managing your expenses today
+                img.homepage-doodle(src='/images/undraw_success_factors_re_ce93.svg' alt='')
+            .div2
+                main.main
+                    .login-form
+                        h2.heading-secondary Log in
+                        form.form
+                            .form__group
+                                i.fas.fa-envelope
+                                input#email.form__input(type='email' placeholder='you@example.com' required='required')
+                            .form__group
+                                i.fas.fa-lock
+                                input#password.form__input(type='password' placeholder='••••••••' required='required' minlength='8')
+                            .form__group
+                                button.btn.btn--green Login
+                a.signup-link(href='/signup') New User ? Create an account !!
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js")
+script(src="login.js" user=`${user}`)
+script(src="showAlert.js")

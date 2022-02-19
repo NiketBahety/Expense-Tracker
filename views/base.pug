@@ -1,0 +1,62 @@
+html
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title=`${title}`
+        link(rel='shortcut icon' href='#')
+        link(rel='stylesheet' href='styles.css')
+        link(rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous')
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+    body
+        .navbar
+            a.app-name X-Tracker
+            .profile-img
+                img(src=`${user.image}` alt="")
+        .main-content
+            .container
+                //- .heading
+                //-     p Expense Tracker
+                .balance
+                    p.your-balance Your Balance
+                    p.bal-amt=`₹ ${total}`
+                .amount
+                    .income
+                        p.income-heading INCOME
+                        p.income-amt=`₹ ${inc}`
+                    .line
+                    .expense
+                        p.expense-heading EXPENSE
+                        p.expense-amt=`₹ ${exp}`
+                .history
+                    i.fas.fa-arrow-left
+                    p.today-date
+                    i.fas.fa-arrow-right
+                .history-container
+                    each expense in expenses
+                        if expense.type=='Income'
+                            .item.income-border(id=`${expense.id}`)
+                                p.name=expense.text
+                                p.amt=`₹ ${expense.amount}`
+                        else 
+                            .item.expense-border(id=`${expense.id}`)
+                                p.name=expense.text
+                                p.amt=`₹ ${expense.amount}`
+                form.add-form
+                    label(for='name') Subject
+                    br
+                    input#name.input-bar(type='text' name='name')
+                    br
+                    label(for='amt') Amount
+                    br
+                    input#amt.input-bar(type='number' name='amt')
+                    br
+                    input.radio(type='radio' name='type-of' id='income-radio' value='Income')
+                    label(for='') Income
+                    input.radio(type='radio' name='type-of' checked='' id='expense-radio' value='Expense')
+                    label(for='') Expense
+                    br
+                    button.submit-btn(type='submit') ADD
+            
+    script(src="index.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js") 
