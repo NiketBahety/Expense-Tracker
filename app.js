@@ -18,9 +18,7 @@ const expenseRoutes = require('./routes/expenseRoutes');
 const viewRoutes = require('./routes/viewRoutes');
 
 const app = express();
-app.use(
-  cors({ origin: 'https://vast-fjord-01428.herokuapp.com/', credentials: true })
-);
+app.use(cors({ origin: '*', credentials: true }));
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
